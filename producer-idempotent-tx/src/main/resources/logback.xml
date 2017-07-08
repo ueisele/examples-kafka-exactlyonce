@@ -1,0 +1,15 @@
+<configuration >
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<Pattern>%date{ISO8601, Germany/Berlin} [%thread] %-5level [%logger{36}:%line] - %msg%n</Pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+
+	<root level="WARN">
+		<appender-ref ref="STDOUT" />
+	</root>
+
+	<logger name="de.ux" level="INFO"/>
+
+</configuration>

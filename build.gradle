@@ -11,10 +11,10 @@ subprojects {
     version = grgit.describe()
 
     repositories {
-        maven { url 'http://packages.confluent.io/maven/'}
         mavenLocal()
         mavenCentral()
         jcenter()
+        maven { url 'http://packages.confluent.io/maven/'}
     }
 
     compileJava {

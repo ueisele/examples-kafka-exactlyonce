@@ -1,0 +1,59 @@
+= kafka-tx
+
+Example project to illustrate new exactly-once semantics in Kafka.
+
+== References
+
+* Introducing Exactly Once Semantics: https://vimeo.com/223674609/fb49423516
+
+== Existing Semantics
+
+The strongest guarantees which can be given by Kafka until version 0.10.2.2 is `at-least-once`.
+
+* At least once in order delivery per partition.
+* Producer retries can introduce duplicates and headaches.
+
+Various failures must be handled correctly:
+
+* Broker can fail
+* Producer-to-Broker RPC can fail
+* Producer or Consumer client can fail
+
+In order to guarantee message delivery those failures must be handled. One approach is to resent messages in such scenarios. In this case we have `at-least-once` semantics.
+
+== Exactly-once Guarantees
+
+With Kafka 0.11.0.0 a `exactly-once` semantics has been introduced.
+With this approach it must be ensured that in case of a failure no duplicates are created.
+
+Apache Kafka`s guarantees are stronger in 3 ways:
+
+* *Idempotent producer*: Exactly-once, in-order, delivery per partition.
+* *Transactions*: Atomic writes across partitions.
+* *Exactly-once stream processing* across read-process-write tasks.
+
+== Installation
+
+The project depends on `io.confluent:kafka-avro-serializer:3.3.0-SNAPSHOT`. Confluent does not publish SNAPSHOT artifacts. Therefor, it is required to clone the dependent Git repositories and build them.
+
+[source,bash]
+----
+git clone https://github.com/confluentinc/common.git
+cd common
+git checkout 3.3.x
+sed -i 's/<kafka.version>0.11.0.0-SNAPSHOT<\/kafka.version>/<kafka.version>0.11.0.0<\/kafka.version>/g' pom.xml
+mvn clean install
+cd ..
+
+git clone https://github.com/confluentinc/rest-utils.git
+cd rest-utils
+git checkout 3.3.x
+mvn clean install
+cd ..
+
+git clone https://github.com/confluentinc/schema-registry.git
+cd schema-registry
+git checkout 3.3.x
+mvn clean install
+cd ..
+----
