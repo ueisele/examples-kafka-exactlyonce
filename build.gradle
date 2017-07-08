@@ -1,0 +1,41 @@
+plugins {
+    id 'org.ajoberstar.grgit' version '1.7.2'
+    id 'java'
+}
+
+subprojects {
+
+    apply plugin: 'java'
+
+    group = 'de.ux.kafka.example'
+    version = grgit.describe()
+
+    repositories {
+        maven { url 'http://packages.confluent.io/maven/'}
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+    }
+
+    compileJava {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+        options.encoding = 'UTF-8'
+    }
+
+    compileTestJava {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+        options.encoding = 'UTF-8'
+    }
+
+    jar {
+        manifest {
+            attributes('Ri-Group': project.group)
+            attributes('Ri-Name': project.name)
+            attributes('Ri-Version': project.version)
+            attributes('Ri-Revision': grgit.head().id)
+        }
+    }
+
+}
