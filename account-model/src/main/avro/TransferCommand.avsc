@@ -1,0 +1,19 @@
+{
+  "namespace": "de.ux.kafka.example.account.model",
+  "name": "TransferCommand",
+  "type": "record",
+  "fields": [
+    {
+      "name": "debtor",
+      "type": "string"
+    },
+    {
+      "name": "creditor",
+      "type": "string"
+    },
+    {
+      "name": "amount",
+      "type": "int"
+    }
+  ]
+}
