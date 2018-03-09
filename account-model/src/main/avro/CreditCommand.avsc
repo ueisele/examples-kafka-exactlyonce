@@ -1,0 +1,15 @@
+{
+  "namespace": "de.ux.kafka.example.account.model",
+  "name": "DebitCommand",
+  "type": "record",
+  "fields": [
+    {
+      "name": "user",
+      "type": "string"
+    },
+    {
+      "name": "amount",
+      "type": "int"
+    }
+  ]
+}

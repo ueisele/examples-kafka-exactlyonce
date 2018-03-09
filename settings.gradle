@@ -1,3 +1,5 @@
 rootProject.name = 'kafka-tx'
 include 'account-model'
 include 'producer-idempotent-tx'
+include 'funds-transfer'
+
