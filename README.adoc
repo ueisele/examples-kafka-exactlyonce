@@ -1,4 +1,4 @@
-= kafka-tx
+= Kafka Exactly Once
 
 Example project to illustrate new exactly-once semantics in Kafka.
 
@@ -31,29 +31,3 @@ Apache Kafka`s guarantees are stronger in 3 ways:
 * *Idempotent producer*: Exactly-once, in-order, delivery per partition.
 * *Transactions*: Atomic writes across partitions.
 * *Exactly-once stream processing* across read-process-write tasks.
-
-== Installation
-
-The project depends on `io.confluent:kafka-avro-serializer:3.3.0-SNAPSHOT`. Confluent does not publish SNAPSHOT artifacts. Therefor, it is required to clone the dependent Git repositories and build them.
-
-[source,bash]
-----
-git clone https://github.com/confluentinc/common.git
-cd common
-git checkout 3.3.x
-sed -i 's/<kafka.version>0.11.0.0-SNAPSHOT<\/kafka.version>/<kafka.version>0.11.0.0<\/kafka.version>/g' pom.xml
-mvn clean install
-cd ..
-
-git clone https://github.com/confluentinc/rest-utils.git
-cd rest-utils
-git checkout 3.3.x
-mvn clean install
-cd ..
-
-git clone https://github.com/confluentinc/schema-registry.git
-cd schema-registry
-git checkout 3.3.x
-mvn clean install
-cd ..
-----

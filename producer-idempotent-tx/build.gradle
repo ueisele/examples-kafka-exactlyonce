@@ -4,7 +4,7 @@ plugins {
 
 jar {
     manifest {
-        attributes('Main-Class': 'de.ux.kafka.tx.producer.IdempotentProducer')
+        attributes('Main-Class': 'examples.kafka.exactlyonce.producer.IdempotentProducer')
     }
 }
 

@@ -1,10 +1,10 @@
-package de.ux.kafka.example.account.service;
+package examples.kafka.exactlyonce.account.service;
 
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class FundsTransferTopologyBuilderTest {
+public class FundsTransferTopologyFactoryTest {
 
     @Test
     public void shouldTransferFundsFromUweToFlorian() throws Exception {

@@ -9,7 +9,7 @@ subprojects {
 
     apply plugin: 'java'
 
-    group = 'de.ux.kafka.example'
+    group = 'examples.kafka'
     version = grgit.describe()
 
     repositories {

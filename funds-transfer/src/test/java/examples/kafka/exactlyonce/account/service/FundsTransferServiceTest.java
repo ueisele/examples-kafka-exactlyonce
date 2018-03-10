@@ -1,4 +1,4 @@
-package de.ux.kafka.example.account.service;
+package examples.kafka.exactlyonce.account.service;
 
 import org.junit.Test;
 

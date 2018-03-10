@@ -1,5 +1,5 @@
 {
-  "namespace": "de.ux.kafka.example.account.model",
+  "namespace": "examples.kafka.exactlyonce.account.model",
   "name": "BalanceCommand",
   "type": "record",
   "fields": [

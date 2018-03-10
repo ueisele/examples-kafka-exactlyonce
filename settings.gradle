@@ -1,5 +1,4 @@
-rootProject.name = 'kafka-tx'
+rootProject.name = 'kafka-exactlyonce'
 include 'account-model'
 include 'producer-idempotent-tx'
 include 'funds-transfer'
-
